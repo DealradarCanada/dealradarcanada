@@ -1,7 +1,9 @@
-id,name,category,store,storeLogo,price,oldPrice,discountPercent,dealScore,score,badge,rating,isTrending,expiresAt,source,affiliateNetwork,image,link
-macbook-air-m3,MacBook Air M3,Tech,Best Buy,🟦,$1299,$1499,13,92,Excellent Deal,🔥 Top Deal,4.9,true,2026-05-20,Best Buy Canada,CJ Affiliate,https://images.unsplash.com/photo-1496181133206-80ce9b88a853,https://www.bestbuy.ca/
-sony-wh-1000xm5,Sony WH-1000XM5,Audio,Amazon,🟨,$399,$499,20,95,Best Value,💎 Best Value,4.8,true,2026-05-18,Amazon Canada,Amazon Associates,https://images.unsplash.com/photo-1505740420928-5e560c06d30e,https://www.amazon.ca/
-nintendo-switch-oled,Nintendo Switch OLED,Gaming,Walmart,🔵,$449,$499,10,84,Good Deal,⚡ Limited Offer,4.7,true,2026-05-16,Walmart Canada,Rakuten,https://images.unsplash.com/photo-1578303512597-81e6cc155b3e,https://www.walmart.ca/
-ipad-air-m2,iPad Air M2,Tech,Apple,🍎,$799,$899,11,88,Hot Deal,🔥 Hot Deal,4.9,false,2026-05-25,Apple Canada,Direct,https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0,https://www.apple.com/ca/
-playstation-5,PlayStation 5,Gaming,Amazon,🟨,$649,$749,13,90,Top Pick,🏆 Top Pick,4.9,true,2026-05-21,Amazon Canada,Amazon Associates,https://images.unsplash.com/photo-1606813907291-d86efa9b94db,https://www.amazon.ca/
-dyson-v15-vacuum,Dyson V15 Vacuum,Home,Best Buy,🟦,$899,$999,10,82,Premium Deal,💎 Premium Deal,4.7,false,2026-05-30,Best Buy Canada,CJ Affiliate,https://images.unsplash.com/photo-1558317374-067fb5f30001,https://www.bestbuy.ca/
+image,link
+https://images.unsplash.com/photo-1484704849700-f032a568e944,https://amzn.to/4wB1oN4
+https://images.unsplash.com/photo-1546435770-a3e426bf472b,https://amzn.to/4ucnBiQ
+https://images.unsplash.com/photo-1587202372775-e229f172b9d7,https://amzn.to/3Po6fAA
+https://images.unsplash.com/photo-1517336714739-489689fd1ca8,https://amzn.to/493dWCP
+https://images.unsplash.com/photo-1578303512597-81e6cc155b3e,https://amzn.to/42BTDJ4
+https://images.unsplash.com/photo-1585771724684-38269d6639fd,https://amzn.to/4dQ84PU
+https://images.unsplash.com/photo-1558317374-067fb5f30001,https://amzn.to/3PqRQUc
+https://images.unsplash.com/photo-1542291026-7eec264c27ff,https://amzn.to/4dhgu2J
