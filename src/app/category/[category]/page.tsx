@@ -1,23 +1,27 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useParams } from "next/navigation";
 import Link from "next/link";
 import { loadCSVProducts } from "../../../lib/csvImporter";
 
-function createSlug(name: string) {
-  return name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+function slugToTitle(slug: string) {
+  return slug.replace(/-/g, " ");
 }
 
-export default function CategoryPage({ params }: { params: { category: string } }) {
+export default function CategoryPage() {
+  const params = useParams();
+  const category = String(params.category || "");
+  const categoryName = slugToTitle(category);
+
   const [products, setProducts] = useState<any[]>([]);
 
   useEffect(() => {
     loadCSVProducts().then(setProducts);
   }, []);
 
-  const categoryName = params.category.replace(/-/g, " ");
   const filtered = products.filter(
-    (p) => p.category.toLowerCase() === categoryName.toLowerCase()
+    (p) => p.category?.toLowerCase() === categoryName.toLowerCase()
   );
 
   return (
@@ -37,7 +41,7 @@ export default function CategoryPage({ params }: { params: { category: string } 
             Best {categoryName} Deals Canada
           </h1>
           <p className="mt-4 text-slate-200 max-w-3xl">
-            Discover ranked {categoryName} deals from Amazon Canada with affiliate offers, deal scores and smart discounts.
+            Discover ranked {categoryName} deals from Amazon Canada with deal scores and smart discounts.
           </p>
         </div>
       </section>
@@ -80,13 +84,6 @@ export default function CategoryPage({ params }: { params: { category: string } 
                 >
                   View Deal
                 </a>
-
-                <Link
-                  href={`/product/${createSlug(deal.name)}`}
-                  className="block mt-3 border text-center py-3 rounded-2xl font-bold"
-                >
-                  Deal Analysis
-                </Link>
               </div>
             </div>
           ))}
