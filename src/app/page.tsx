@@ -13,32 +13,45 @@ import {
 type Product = (typeof products)[number];
 
 function createSlug(name: string) {
-  return name
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-|-$/g, "");
+  return name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 }
 
 export default function Home() {
   const [search, setSearch] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
-  const [selectedStore, setSelectedStore] = useState("All");
-  const [selectedNetwork, setSelectedNetwork] = useState("All");
 
   const allProducts: Product[] = products;
 
-  const categories = ["All", ...Array.from(new Set(allProducts.map((p) => p.category)))];
-  const stores = ["All", ...Array.from(new Set(allProducts.map((p) => p.store)))];
-  const networks = ["All", ...Array.from(new Set(allProducts.map((p) => p.affiliateNetwork)))];
+  const categories = [
+    "All",
+    "Gaming",
+    "Audio",
+    "Tech",
+    "TV",
+    "Home",
+    "Shoes",
+    "Laptop",
+    "Phones",
+    "Tablets",
+    "Headphones",
+    "Smart Home",
+    "Kitchen",
+    "Beauty",
+    "Fashion",
+    "Fitness",
+    "Office",
+    "Appliances",
+    "Toys",
+    "Automotive",
+    "Outdoor",
+  ];
 
   const filteredDeals = allProducts.filter((deal: Product) => {
     const text = `${deal.name} ${deal.category} ${deal.store} ${deal.affiliateNetwork}`.toLowerCase();
 
     return (
       text.includes(search.toLowerCase()) &&
-      (selectedCategory === "All" || deal.category === selectedCategory) &&
-      (selectedStore === "All" || deal.store === selectedStore) &&
-      (selectedNetwork === "All" || deal.affiliateNetwork === selectedNetwork)
+      (selectedCategory === "All" || deal.category === selectedCategory)
     );
   });
 
@@ -59,7 +72,7 @@ export default function Home() {
         <h3 className="text-2xl font-black mt-2">{deal.name}</h3>
         <p className="mt-3 font-bold">Deal Score: {deal.dealScore}/100</p>
         <p className="text-red-600 font-bold">-{deal.discountPercent}%</p>
-        <small>{deal.store}</small>
+        <small>Amazon</small>
       </div>
     </Link>
   );
@@ -96,15 +109,19 @@ export default function Home() {
             affiliate network and deal quality.
           </p>
 
-          <div className="mt-10 flex gap-3 max-w-4xl">
+          <div className="mt-10 bg-white rounded-3xl p-3 max-w-4xl flex flex-col md:flex-row gap-3 shadow-2xl">
             <input
-              className="flex-1 rounded-2xl px-5 py-4 text-slate-900 outline-none"
+              className="flex-1 rounded-2xl px-5 py-4 text-slate-900 outline-none border border-slate-200"
               type="text"
-              placeholder="Search products, stores, networks..."
+              placeholder="Type what you are looking for: PlayStation, MacBook, Dyson..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
             />
-            <button className="rounded-2xl bg-white text-slate-900 px-8 py-4 font-bold shadow-lg hover:bg-slate-100 transition">
+
+            <button
+              onClick={() => setSearch(search)}
+              className="rounded-2xl bg-blue-600 text-white px-8 py-4 font-bold hover:bg-blue-700 transition"
+            >
               Search
             </button>
           </div>
@@ -134,38 +151,18 @@ export default function Home() {
         <div className="bg-white rounded-3xl p-5 shadow-sm" id="stores">
           <h3 className="text-lg font-black mb-4">Stores</h3>
           <div className="flex flex-wrap gap-3">
-            {stores.map((store) => (
-              <button
-                key={store}
-                onClick={() => setSelectedStore(store)}
-                className={`px-5 py-2 rounded-full font-semibold ${
-                  selectedStore === store
-                    ? "bg-blue-700 text-white"
-                    : "bg-slate-100 text-slate-700"
-                }`}
-              >
-                {store}
-              </button>
-            ))}
+            <button className="px-5 py-2 rounded-full font-semibold bg-blue-700 text-white">
+              Amazon
+            </button>
           </div>
         </div>
 
         <div className="bg-white rounded-3xl p-5 shadow-sm" id="networks">
-          <h3 className="text-lg font-black mb-4">Affiliate Networks</h3>
+          <h3 className="text-lg font-black mb-4">Affiliate Network</h3>
           <div className="flex flex-wrap gap-3">
-            {networks.map((network) => (
-              <button
-                key={network}
-                onClick={() => setSelectedNetwork(network)}
-                className={`px-5 py-2 rounded-full font-semibold ${
-                  selectedNetwork === network
-                    ? "bg-blue-700 text-white"
-                    : "bg-slate-100 text-slate-700"
-                }`}
-              >
-                {network}
-              </button>
-            ))}
+            <button className="px-5 py-2 rounded-full font-semibold bg-blue-700 text-white">
+              Amazon Associates
+            </button>
           </div>
         </div>
       </section>
@@ -189,11 +186,10 @@ export default function Home() {
               className="bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl transition"
             >
               <img src={deal.image} alt={deal.name} className="h-48 w-full object-cover" />
-
               <div className="p-5">
                 <div className="flex justify-between text-sm">
                   <span className="text-blue-700 font-bold">{deal.category}</span>
-                  <span>{deal.store}</span>
+                  <span>Amazon</span>
                 </div>
 
                 <h3 className="text-2xl font-black mt-3">{deal.name}</h3>
@@ -221,7 +217,7 @@ export default function Home() {
                   </div>
                 </div>
 
-                <p className="mt-4 text-sm">Network: {deal.affiliateNetwork}</p>
+                <p className="mt-4 text-sm">Network: Amazon Associates</p>
 
                 <button className="mt-5 w-full rounded-2xl bg-blue-600 text-white py-3 font-bold">
                   View Deal Analysis
@@ -235,7 +231,6 @@ export default function Home() {
       <section className="bg-slate-950 text-white py-14">
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-4xl font-black mb-8">Biggest Price Drops</h2>
-
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {biggestDrops.map((deal: Product) => (
               <Link
@@ -247,7 +242,7 @@ export default function Home() {
                 <div className="p-5">
                   <h3 className="text-2xl font-black">{deal.name}</h3>
                   <p className="text-red-400 font-bold">-{deal.discountPercent}%</p>
-                  <small>{deal.store}</small>
+                  <small>Amazon</small>
                 </div>
               </Link>
             ))}
@@ -257,7 +252,6 @@ export default function Home() {
 
       <section className="max-w-7xl mx-auto px-6 py-14">
         <h2 className="text-4xl font-black mb-8">Expiring Soon</h2>
-
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {expiringSoon.map((deal: Product) => (
             <Link
@@ -269,7 +263,7 @@ export default function Home() {
               <div className="p-5">
                 <h3 className="text-2xl font-black">{deal.name}</h3>
                 <p>Expires: {deal.expiresAt}</p>
-                <small>{deal.store}</small>
+                <small>Amazon</small>
               </div>
             </Link>
           ))}
@@ -283,9 +277,8 @@ export default function Home() {
               DealRadar Canada
             </h3>
             <p className="text-slate-300 leading-7">
-              Intelligent Canadian deal discovery platform focused on helping shoppers
-              find strong discounts across trusted stores, product categories and
-              affiliate networks.
+              Intelligent Canadian deal discovery platform built to help shoppers
+              find strong discounts through ranked product signals and affiliate links.
             </p>
           </div>
 
@@ -295,17 +288,17 @@ export default function Home() {
               <li>Gaming Deals</li>
               <li>Tech Deals</li>
               <li>Audio Deals</li>
-              <li>Home Deals</li>
               <li>TV Deals</li>
-              <li>Shoes Deals</li>
+              <li>Home Deals</li>
+              <li>Fashion Deals</li>
             </ul>
           </div>
 
           <div>
             <h4 className="font-black mb-4">Affiliate Strategy</h4>
             <p className="text-slate-300 leading-7">
-              DealRadar Canada is built to organize product deals, compare discount
-              signals, rank offers and redirect visitors through approved affiliate links.
+              For now, DealRadar Canada focuses on Amazon Associates products.
+              More approved stores and networks can be added later.
             </p>
           </div>
         </div>
