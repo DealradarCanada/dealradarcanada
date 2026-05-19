@@ -1,13 +1,13 @@
-id,name,category,store,network,price,oldPrice,discount,score,date,image,link
-1,PlayStation 5,Gaming,Amazon,Amazon Associates,649,749,-13,96,2026-06-01,https://images.unsplash.com/photo-1606813907291-d86efa9b94db,https://amzn.to/493dWCP
-2,Nintendo Switch OLED,Gaming,Amazon,Amazon Associates,399,499,-20,95,2026-06-01,https://images.unsplash.com/photo-1578303512597-81e6cc155b3e,https://amzn.to/42BTDJ4
-3,Meta Quest 3,Gaming,Amazon,Amazon Associates,829.96,949.99,-13,94,2026-06-01,https://images.unsplash.com/photo-1622979135225-d2ba269cf1ac,https://amzn.to/4eQMbB7
-4,ASUS ROG Strix G18,Gaming,Amazon,Amazon Associates,3479,3999,-13,93,2026-06-01,https://images.unsplash.com/photo-1496181133206-80ce9b88a853,https://amzn.to/4umX7eP
-5,Ninja Creami Ice Cream Maker,Home,Amazon,Amazon Associates,199.99,299.99,-33,97,2026-06-01,https://images.unsplash.com/photo-1570797876724-09bb5ff1f3e8,https://amzn.to/4tOBS49
-6,Kindle Paperwhite,Tech,Amazon,Amazon Associates,189.99,249.99,-24,90,2026-06-01,https://images.unsplash.com/photo-1512820790803-83ca734da794,https://amzn.to/4uYLieA
-7,Garmin Forerunner 265,Tech,Amazon,Amazon Associates,489.99,599.99,-18,91,2026-06-01,https://images.unsplash.com/photo-1546868871-7041f2a55e12,https://amzn.to/4ukkMMC
-8,Samsung Galaxy Tab S10 Lite,Tech,Amazon,Amazon Associates,499.98,649.99,-23,92,2026-06-01,https://images.unsplash.com/photo-1561154464-82e9adf32764,https://amzn.to/4nGkMnZ
-9,Nespresso Vertuo Pop Deluxe,Home,Amazon,Amazon Associates,99,159.99,-38,96,2026-06-01,https://images.unsplash.com/photo-1517668808822-9ebb02f2a0e6,https://amzn.to/4tI0Fa8
-10,Logitech MX Master 3S,Tech,Amazon,Amazon Associates,159,265,-40,93,2026-06-01,https://images.unsplash.com/photo-1527814050087-3793815479db,https://amzn.to/42FIHtY
-11,Shark Robot Auto-Empty XL,Home,Amazon,Amazon Associates,699.99,899.99,-22,95,2026-06-01,https://images.unsplash.com/photo-1585771724684-38269d6639fd,https://amzn.to/4nJlalE
-12,Bose QuietComfort Ultra,Audio,Amazon,Amazon Associates,479.99,599.99,-20,94,2026-06-01,https://images.unsplash.com/photo-1505740420928-5e560c06d30e,https://amzn.to/4nF6i7M
+name,category,store,network,price,oldPrice,discount,dealScore,expiresAt,image,link
+PlayStation 5,Gaming,Amazon,Amazon Associates,649,749,13,96,2026-06-01,https://images.unsplash.com/photo-1606813907291-d86efa9b94db,https://amzn.to/4wB1oN4
+Nintendo Switch OLED,Gaming,Amazon,Amazon Associates,399,449,11,94,2026-06-01,https://images.unsplash.com/photo-1578303512597-81e6cc155b3e,https://amzn.to/42BTDJ4
+Meta Quest 3,Gaming,Amazon,Amazon Associates,829.96,949.99,13,95,2026-06-01,https://images.unsplash.com/photo-1622979135225-d2ba269cf1ac,https://amzn.to/4eQMbB7
+ASUS ROG Strix G18,Gaming,Amazon,Amazon Associates,3479,3999,13,97,2026-06-01,https://images.unsplash.com/photo-1496181133206-80ce9b88a853,https://amzn.to/4umX7eP
+Ninja Creami Ice Cream Maker,Home,Amazon,Amazon Associates,199.99,299.99,33,96,2026-06-01,https://images.unsplash.com/photo-1570197788417-0e82375c9371,https://amzn.to/4tOBS49
+Kindle Paperwhite,Tech,Amazon,Amazon Associates,144.99,189.99,24,90,2026-06-01,https://images.unsplash.com/photo-1512820790803-83ca734da794,https://amzn.to/4uYLieA
+Garmin Forerunner 265,Tech,Amazon,Amazon Associates,489.99,599.99,18,93,2026-06-01,https://images.unsplash.com/photo-1546868871-7041f2a55e12,https://amzn.to/4ukkMMC
+Samsung Galaxy Tab S10 Lite,Tech,Amazon,Amazon Associates,499.98,649.99,23,92,2026-06-01,https://images.unsplash.com/photo-1561154464-82e9adf32764,https://amzn.to/4nGkMnZ
+Nespresso Vertuo Pop Deluxe,Home,Amazon,Amazon Associates,99,159.99,38,91,2026-06-01,https://images.unsplash.com/photo-1495474472287-4d71bcdd2085,https://amzn.to/4tI0Fa8
+Logitech MX Master 3S,Tech,Amazon,Amazon Associates,159,199.99,20,89,2026-06-01,https://images.unsplash.com/photo-1527814050087-3793815479db,https://amzn.to/42FIHtY
+Shark Robot Auto-Empty XL,Home,Amazon,Amazon Associates,699.99,899.99,22,95,2026-06-01,https://images.unsplash.com/photo-1585771724684-38269d6639fd,https://amzn.to/4nJlalE
+Bose QuietComfort Ultra,Audio,Amazon,Amazon Associates,479.99,549.99,13,94,2026-06-01,https://images.unsplash.com/photo-1505740420928-5e560c06d30e,https://amzn.to/4nF6i7M
