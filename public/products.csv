@@ -1,9 +1,10 @@
-image,link
-https://images.unsplash.com/photo-1484704849700-f032a568e944,https://amzn.to/4wB1oN4
-https://images.unsplash.com/photo-1546435770-a3e426bf472b,https://amzn.to/4ucnBiQ
-https://images.unsplash.com/photo-1587202372775-e229f172b9d7,https://amzn.to/3Po6fAA
-https://images.unsplash.com/photo-1517336714739-489689fd1ca8,https://amzn.to/493dWCP
-https://images.unsplash.com/photo-1578303512597-81e6cc155b3e,https://amzn.to/42BTDJ4
-https://images.unsplash.com/photo-1585771724684-38269d6639fd,https://amzn.to/4dQ84PU
-https://images.unsplash.com/photo-1558317374-067fb5f30001,https://amzn.to/3PqRQUc
-https://images.unsplash.com/photo-1542291026-7eec264c27ff,https://amzn.to/4dhgu2J
+name,category,store,network,price,oldPrice,discount,dealScore,expiresAt,image,link
+PlayStation 5,Gaming,Amazon,Amazon Associates,649,749,-13,92,2026-06-01,https://images.unsplash.com/photo-1606813907291-d86efa9b94db,https://amzn.to/4wzBOI7
+Apple AirPods Pro 2,Audio,Amazon,Amazon Associates,299,349,-14,90,2026-06-01,https://images.unsplash.com/photo-1600294037681-c80b4cb5b434,https://amzn.to/4wzBOI7
+MacBook Air M3,Tech,Amazon,Amazon Associates,1499,1699,-12,95,2026-06-01,https://images.unsplash.com/photo-1517336714739-489689fd1ca8,https://amzn.to/4wzBOI7
+Nintendo Switch OLED,Gaming,Amazon,Amazon Associates,399,449,-11,88,2026-06-01,https://images.unsplash.com/photo-1578303512597-81e6cc155b3e,https://amzn.to/4wzBOI7
+Dyson V15 Vacuum,Home,Amazon,Amazon Associates,799,999,-20,93,2026-06-01,https://images.unsplash.com/photo-1581578731548-c64695cc6952,https://amzn.to/4wzBOI7
+Samsung 55 Inch Smart TV,TV,Amazon,Amazon Associates,699,899,-22,91,2026-06-01,https://images.unsplash.com/photo-1593784991095-a205069470b6,https://amzn.to/4wzBOI7
+Sony WH-1000XM6,Audio,Amazon,Amazon Associates,449,549,-18,94,2026-06-01,https://images.unsplash.com/photo-1505740420928-5e560c06d30e,https://amzn.to/4wzBOI7
+iPad Air M3,Tech,Amazon,Amazon Associates,799,949,-16,89,2026-06-01,https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0,https://amzn.to/4wzBOI7
+Nike Running Shoes,Shoes,Amazon,Amazon Associates,159,265,-40,91,2026-06-01,https://images.unsplash.com/photo-1542291026-7eec264c27ff,https://amzn.to/4wzBOI7
