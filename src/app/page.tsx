@@ -104,60 +104,74 @@ export default function Home() {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
             />
-            <button className="rounded-2xl bg-blue-500 px-8 py-4 font-bold">
+            <button className="rounded-2xl bg-white text-slate-900 px-8 py-4 font-bold shadow-lg hover:bg-slate-100 transition">
               Search
             </button>
           </div>
         </div>
       </section>
 
-      <section className="max-w-7xl mx-auto px-6 py-8 space-y-4">
-        <div className="flex flex-wrap gap-3">
-          {categories.map((category) => (
-            <button
-              key={category}
-              onClick={() => setSelectedCategory(category)}
-              className={`px-5 py-2 rounded-full font-semibold ${
-                selectedCategory === category ? "bg-blue-700 text-white" : "bg-white text-slate-700"
-              }`}
-            >
-              {category}
-            </button>
-          ))}
+      <section className="max-w-7xl mx-auto px-6 py-10 space-y-6">
+        <div className="bg-white rounded-3xl p-5 shadow-sm">
+          <h3 className="text-lg font-black mb-4">Browse Categories</h3>
+          <div className="flex flex-wrap gap-3">
+            {categories.map((category) => (
+              <button
+                key={category}
+                onClick={() => setSelectedCategory(category)}
+                className={`px-5 py-2 rounded-full font-semibold ${
+                  selectedCategory === category
+                    ? "bg-blue-700 text-white"
+                    : "bg-slate-100 text-slate-700"
+                }`}
+              >
+                {category}
+              </button>
+            ))}
+          </div>
         </div>
 
-        <div className="flex flex-wrap gap-3" id="stores">
-          {stores.map((store) => (
-            <button
-              key={store}
-              onClick={() => setSelectedStore(store)}
-              className={`px-5 py-2 rounded-full font-semibold ${
-                selectedStore === store ? "bg-blue-700 text-white" : "bg-white text-slate-700"
-              }`}
-            >
-              {store}
-            </button>
-          ))}
+        <div className="bg-white rounded-3xl p-5 shadow-sm" id="stores">
+          <h3 className="text-lg font-black mb-4">Stores</h3>
+          <div className="flex flex-wrap gap-3">
+            {stores.map((store) => (
+              <button
+                key={store}
+                onClick={() => setSelectedStore(store)}
+                className={`px-5 py-2 rounded-full font-semibold ${
+                  selectedStore === store
+                    ? "bg-blue-700 text-white"
+                    : "bg-slate-100 text-slate-700"
+                }`}
+              >
+                {store}
+              </button>
+            ))}
+          </div>
         </div>
 
-        <div className="flex flex-wrap gap-3" id="networks">
-          {networks.map((network) => (
-            <button
-              key={network}
-              onClick={() => setSelectedNetwork(network)}
-              className={`px-5 py-2 rounded-full font-semibold ${
-                selectedNetwork === network ? "bg-blue-700 text-white" : "bg-white text-slate-700"
-              }`}
-            >
-              {network}
-            </button>
-          ))}
+        <div className="bg-white rounded-3xl p-5 shadow-sm" id="networks">
+          <h3 className="text-lg font-black mb-4">Affiliate Networks</h3>
+          <div className="flex flex-wrap gap-3">
+            {networks.map((network) => (
+              <button
+                key={network}
+                onClick={() => setSelectedNetwork(network)}
+                className={`px-5 py-2 rounded-full font-semibold ${
+                  selectedNetwork === network
+                    ? "bg-blue-700 text-white"
+                    : "bg-slate-100 text-slate-700"
+                }`}
+              >
+                {network}
+              </button>
+            ))}
+          </div>
         </div>
       </section>
 
       <section id="top-deals" className="max-w-7xl mx-auto px-6 py-10">
         <h2 className="text-4xl font-black mb-8">Trending Today</h2>
-
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {trendingDeals.map((deal: Product) => renderSimpleCard(deal))}
         </div>
@@ -262,8 +276,43 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="border-t border-slate-300 text-center py-6 text-slate-600">
-        © 2026 DealRadar Canada — Intelligent Canadian Deal Filter
+      <footer className="bg-slate-950 text-white mt-20">
+        <div className="max-w-7xl mx-auto px-6 py-14 grid md:grid-cols-3 gap-10">
+          <div>
+            <h3 className="text-2xl font-black mb-4 text-blue-400">
+              DealRadar Canada
+            </h3>
+            <p className="text-slate-300 leading-7">
+              Intelligent Canadian deal discovery platform focused on helping shoppers
+              find strong discounts across trusted stores, product categories and
+              affiliate networks.
+            </p>
+          </div>
+
+          <div>
+            <h4 className="font-black mb-4">Popular Categories</h4>
+            <ul className="space-y-2 text-slate-300">
+              <li>Gaming Deals</li>
+              <li>Tech Deals</li>
+              <li>Audio Deals</li>
+              <li>Home Deals</li>
+              <li>TV Deals</li>
+              <li>Shoes Deals</li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="font-black mb-4">Affiliate Strategy</h4>
+            <p className="text-slate-300 leading-7">
+              DealRadar Canada is built to organize product deals, compare discount
+              signals, rank offers and redirect visitors through approved affiliate links.
+            </p>
+          </div>
+        </div>
+
+        <div className="border-t border-slate-800 text-center py-6 text-slate-400">
+          © 2026 DealRadar Canada — Intelligent Canadian Deal Filter
+        </div>
       </footer>
     </main>
   );
