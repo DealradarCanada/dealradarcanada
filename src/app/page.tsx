@@ -8,7 +8,9 @@ import {
   getTrendingDeals,
   getBiggestDrops,
   getExpiringSoon,
-} from "./lib/dealEngine";
+} from "../lib/dealEngine";
+
+type Product = (typeof products)[number];
 
 function createSlug(name: string) {
   return name
@@ -23,13 +25,13 @@ export default function Home() {
   const [selectedStore, setSelectedStore] = useState("All");
   const [selectedNetwork, setSelectedNetwork] = useState("All");
 
-  const allProducts = products;
+  const allProducts: Product[] = products;
 
   const categories = ["All", ...Array.from(new Set(allProducts.map((p) => p.category)))];
   const stores = ["All", ...Array.from(new Set(allProducts.map((p) => p.store)))];
   const networks = ["All", ...Array.from(new Set(allProducts.map((p) => p.affiliateNetwork)))];
 
-  const filteredDeals = allProducts.filter((deal) => {
+  const filteredDeals = allProducts.filter((deal: Product) => {
     const text = `${deal.name} ${deal.category} ${deal.store} ${deal.affiliateNetwork}`.toLowerCase();
 
     return (
@@ -44,6 +46,23 @@ export default function Home() {
   const trendingDeals = getTrendingDeals(filteredDeals);
   const biggestDrops = getBiggestDrops(filteredDeals);
   const expiringSoon = getExpiringSoon(filteredDeals);
+
+  const renderSimpleCard = (deal: Product) => (
+    <Link
+      href={`/product/${createSlug(deal.name)}`}
+      key={deal.id}
+      className="bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl transition"
+    >
+      <img src={deal.image} alt={deal.name} className="h-48 w-full object-cover" />
+      <div className="p-5">
+        <p className="text-blue-700 font-bold text-sm">{deal.category}</p>
+        <h3 className="text-2xl font-black mt-2">{deal.name}</h3>
+        <p className="mt-3 font-bold">Deal Score: {deal.dealScore}/100</p>
+        <p className="text-red-600 font-bold">-{deal.discountPercent}%</p>
+        <small>{deal.store}</small>
+      </div>
+    </Link>
+  );
 
   return (
     <main className="min-h-screen bg-slate-100 text-slate-950">
@@ -99,9 +118,7 @@ export default function Home() {
               key={category}
               onClick={() => setSelectedCategory(category)}
               className={`px-5 py-2 rounded-full font-semibold ${
-                selectedCategory === category
-                  ? "bg-blue-700 text-white"
-                  : "bg-white text-slate-700"
+                selectedCategory === category ? "bg-blue-700 text-white" : "bg-white text-slate-700"
               }`}
             >
               {category}
@@ -115,9 +132,7 @@ export default function Home() {
               key={store}
               onClick={() => setSelectedStore(store)}
               className={`px-5 py-2 rounded-full font-semibold ${
-                selectedStore === store
-                  ? "bg-blue-700 text-white"
-                  : "bg-white text-slate-700"
+                selectedStore === store ? "bg-blue-700 text-white" : "bg-white text-slate-700"
               }`}
             >
               {store}
@@ -131,9 +146,7 @@ export default function Home() {
               key={network}
               onClick={() => setSelectedNetwork(network)}
               className={`px-5 py-2 rounded-full font-semibold ${
-                selectedNetwork === network
-                  ? "bg-blue-700 text-white"
-                  : "bg-white text-slate-700"
+                selectedNetwork === network ? "bg-blue-700 text-white" : "bg-white text-slate-700"
               }`}
             >
               {network}
@@ -146,27 +159,7 @@ export default function Home() {
         <h2 className="text-4xl font-black mb-8">Trending Today</h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {trendingDeals.map((deal) => (
-            <Link
-              href={`/product/${createSlug(deal.name)}`}
-              key={deal.id}
-              className="bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl transition"
-            >
-              <img
-                src={deal.image}
-                alt={deal.name}
-                className="h-48 w-full object-cover"
-              />
-
-              <div className="p-5">
-                <p className="text-blue-700 font-bold text-sm">{deal.category}</p>
-                <h3 className="text-2xl font-black mt-2">{deal.name}</h3>
-                <p className="mt-3 font-bold">Deal Score: {deal.dealScore}/100</p>
-                <p className="text-red-600 font-bold">-{deal.discountPercent}%</p>
-                <small>{deal.store}</small>
-              </div>
-            </Link>
-          ))}
+          {trendingDeals.map((deal: Product) => renderSimpleCard(deal))}
         </div>
       </section>
 
@@ -175,17 +168,13 @@ export default function Home() {
         <p className="mb-8 text-slate-600">{rankedDeals.length} smart deals found</p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {rankedDeals.map((deal) => (
+          {rankedDeals.map((deal: Product) => (
             <Link
               href={`/product/${createSlug(deal.name)}`}
               key={deal.id}
               className="bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl transition"
             >
-              <img
-                src={deal.image}
-                alt={deal.name}
-                className="h-48 w-full object-cover"
-              />
+              <img src={deal.image} alt={deal.name} className="h-48 w-full object-cover" />
 
               <div className="p-5">
                 <div className="flex justify-between text-sm">
@@ -234,7 +223,7 @@ export default function Home() {
           <h2 className="text-4xl font-black mb-8">Biggest Price Drops</h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {biggestDrops.map((deal) => (
+            {biggestDrops.map((deal: Product) => (
               <Link
                 href={`/product/${createSlug(deal.name)}`}
                 key={deal.id}
@@ -256,7 +245,7 @@ export default function Home() {
         <h2 className="text-4xl font-black mb-8">Expiring Soon</h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {expiringSoon.map((deal) => (
+          {expiringSoon.map((deal: Product) => (
             <Link
               href={`/product/${createSlug(deal.name)}`}
               key={deal.id}
