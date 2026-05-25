@@ -35,8 +35,10 @@ export default function RootLayout({
         value="f9e182b5-49ff-44f1-931d-0cfe25f9c51e"
       />
     </head>
+
     <body className="min-h-full flex flex-col">
       {children}
     </body>
   </html>
 );
+}
