@@ -32,7 +32,7 @@ export default function RootLayout({
     <head>
       <meta
         name="impact-site-verification"
-        value="f9e182b5-49ff-44f1-931d-0cfe25f9c51e"
+        content="f9e182b5-49ff-44f1-931d-0cfe25f9c51e"
       />
     </head>
 
