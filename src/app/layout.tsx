@@ -31,9 +31,9 @@ export default function RootLayout({
   <html lang="en">
     <head>
       <meta
-        name="impact-site-verification"
-        content="f9e182b5-49ff-44f1-931d-0cfe25f9c51e"
-      />
+  name="impact-site-verification"
+  content="f9e182b5-49ff-44f1-931d-0cfe25f9c51e"
+/>
     </head>
 
     <body className="min-h-full flex flex-col">
