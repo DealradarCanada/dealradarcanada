@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { loadCSVProducts } from "../lib/csvImporter";
+import { products as localProducts } from "../data/products";
 
 type Product = {
   id: string;
@@ -28,9 +29,9 @@ export default function Home() {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [allProducts, setAllProducts] = useState<Product[]>([]);
 
-  useEffect(() => {
-    loadCSVProducts().then((data) => setAllProducts(data as Product[]));
-  }, []);
+ useEffect(() => {
+  setAllProducts(localProducts as Product[]);
+}, []);
 
   const categories = [
     "All", "Gaming", "Audio", "Tech", "TV", "Home", "Shoes", "Laptop",
@@ -47,7 +48,9 @@ export default function Home() {
   const rankedDeals = [...filteredDeals].sort((a, b) => b.dealScore - a.dealScore);
   const trendingDeals = rankedDeals.filter((p) => p.dealScore >= 90).slice(0, 8);
   const biggestDrops = [...filteredDeals].sort((a, b) => b.discountPercent - a.discountPercent).slice(0, 8);
-  const expiringSoon = [...filteredDeals].slice(0, 8);
+  const expiringSoon = [...filteredDeals]
+  .sort((a, b) => new Date(a.expiresAt).getTime() - new Date(b.expiresAt).getTime())
+  .slice(0, 8);
 
   const ProductCard = ({ deal }: { deal: Product }) => (
     <div className="group bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-2xl transition duration-300">
